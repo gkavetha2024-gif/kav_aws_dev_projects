@@ -3,9 +3,9 @@ sudo hostnamectl set-hostname "jenkins.mypc.com"
 echo "`hostname -I | awk '{ print $1 }'` `hostname`" >> /etc/hosts
 sudo apt-get update
 sudo apt-get install git wget unzip curl tree -y
-sudo apt-get install openjdk-21-jre -y
+sudo apt-get install openjdk-17-jdk -y
 sudo cp -pvr /etc/environment "/etc/environment_$(date +%F_%R)"
-echo "JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64/" >> /etc/environment
+echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" >> /etc/environment
 sudo apt-get install maven -y
 sudo cp -pvr /etc/environment "/etc/environment_$(date +%F_%R)"
 echo "MAVEN_HOME=/usr/share/maven" >> /etc/environment
