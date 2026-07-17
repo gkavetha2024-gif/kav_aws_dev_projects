@@ -108,7 +108,7 @@ pipeline {
         // Stage 3: Send the cloudbinary-3.3.6.war file directly into Tomcat
         stage('Stage-3 : Deployment to Tomcat Server') { 
             steps {
-                sh 'curl -u admin:home@123 -T target/cloudbinary-3.3.6.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
+                sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
             }
         } 
 
