@@ -5,7 +5,7 @@
     <artifactId>Kav_Devops</artifactId>
     <version>3.3.6-SNAPSHOT</version>
     <!-- <version>9.10.3-SNAPSHOT</version> -->
-    <packaging>DevOps</packaging>
+    <packaging>war</packaging>
     <name>Kav_DevOps - Sample Spring MVC Application</name>
 
     <properties>
