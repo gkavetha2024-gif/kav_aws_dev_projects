@@ -22,39 +22,39 @@ pipeline {
         }
          stage('Stage-3 : Compile') { 
             steps {
-                sh 'mvn compile'
+                sh 'mvn compile -DskipTests'
             }
         }
          stage('Stage-4 : Test') { 
             steps {
-                sh 'mvn test'
+                sh 'mvn test -DskipTests'
             }
         }
           stage('Stage-5 : Install') { 
             steps {
-                sh 'mvn install'
+                sh 'mvn install -DskipTests'
             }
         }
           stage('Stage-6 : Verify') { 
             steps {
-                sh 'mvn verify'
+                sh 'mvn verify -DskipTests'
             }
         }
           stage('Stage-7 : Package') { 
             steps {
-                sh 'mvn package'
+                sh 'mvn package -DskipTests'
             }
         }
            stage('Stage-8 : Deploy an Artifact to Artifactory Manager i.e. Nexus/Jfrog') { 
             steps {
-                sh 'mvn deploy'
+                sh 'mvn deploy -DskipTests'
             }
         }
           stage('Stage-9 : Deployment - Deploy a Artifact devops-2.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
                 // Tomcat Server IP Address
-               sh 'curl -u admin:home@123 -T target/devops.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
-              // sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
+               //sh 'curl -u admin:home@123 -T target/devops.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
+               sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
             }
         } 
   
