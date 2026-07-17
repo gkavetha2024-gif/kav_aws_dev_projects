@@ -1,10 +1,8 @@
 pipeline {
     agent any 
     tools {
-       tools {
-            maven 'maven'
-            jdk 'java'
-}
+         maven 'maven'
+         jdk 'java'
     }
     stages {
          stage('Stage-0 : Static Code Analysis Using SonarQube') { 
@@ -54,14 +52,15 @@ pipeline {
         }
           stage('Stage-9 : Deployment - Deploy a Artifact devops-2.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
-                //   Tomcat Server IP add : 100.59.194.143
-                sh 'curl -u admin:redhat@123 -T target/**.war "http://100.59.194.143:8080/manager/text/deploy?path=/cbapp&update=true"'
+                // Tomcat Server IP Address
+                sh 'curl -u admin:redhat@123 -T target/**.war "http://32.199.190.107:8080//manager/text/deploy?path=/cbapp&update=true"'
             }
         } 
   
           stage('Stage-10 : SmokeTest') { 
             steps {
-                sh 'curl --retry-delay 10 --retry 5 "http://100.59.194.143:8080/cbapp"'
+                  // Tomcat Server IP Address
+                sh 'curl --retry-delay 10 --retry 5 "http://32.199.190.107:8080/cbapp"'
             }
         }
 
