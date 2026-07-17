@@ -99,8 +99,8 @@ pipeline {
                 sh '''
                     curl -u "admin:Home@123" \
                          -X PUT \
-                         -T target/cloudbinary-3.3.6.war \
-                         "http://54.234.34.73:8082/artifactory/kav-libs-snapshots-local/com/aws/codestar/projecttemplates/cloudbinary/3.3.6/cloudbinary-3.3.6.war"
+                         -T target/**.war \
+                         "http://54.234.34.73:8082/artifactory/kav-libs-snapshots-local/com/aws/codestar/projecttemplates/kavdev/3.3.6/kavdev-3.3.6.war"
                 '''
             }
         }
@@ -108,7 +108,7 @@ pipeline {
         // Stage 3: Send the cloudbinary-3.3.6.war file directly into Tomcat
         stage('Stage-3 : Deployment to Tomcat Server') { 
             steps {
-                sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
+                sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/kavapp&update=true"'
             }
         } 
 
