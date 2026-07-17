@@ -55,7 +55,7 @@ pipeline {
             steps {
                 // Tomcat Server IP Address
                //sh 'curl -u admin:home@123 -T target/devops.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
-               sh 'curl -u admin:home@123 -T target/devops.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
+               sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
             }
         } 
   
