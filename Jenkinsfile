@@ -115,7 +115,7 @@ pipeline {
         // Stage 4: Check if the application web page loads up properly
         stage('Stage-4 : SmokeTest') { 
             steps {
-                sh 'curl --retry-delay 10 --retry 5 "http://32.199.190.107:8080/cbapp"'
+                sh 'curl --retry-delay 10 --retry 5 "http://32.199.190.107:8080/kavapp"'
             }
         }
     }
