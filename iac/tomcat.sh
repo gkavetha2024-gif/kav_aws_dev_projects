@@ -3,9 +3,9 @@ sudo hostnamectl set-hostname "tomcat.mypc.com"
 echo "`hostname -I | awk '{ print $1 }'` `hostname`" >> /etc/hosts
 sudo apt-get update
 sudo apt-get install git wget unzip curl tree -y
-sudo apt-get install openjdk-17-jdk -y
+sudo apt-get install openjdk-21-jdk -y
 sudo cp -pvr /etc/environment "/etc/environment_$(date +%F_%R)"
-echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" >> /etc/environment
+echo "JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64/" >> /etc/environment
 cd /opt/
 #sudo wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96.tar.gz
 sudo wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.120/bin/apache-tomcat-9.0.120.tar.gz
@@ -30,7 +30,25 @@ cd /opt/tomcat/bin/
 
 ./startup.sh
 
+sudo cp /opt/tomcat/webapps/manager/META-INF/context.xml \
+/opt/tomcat/webapps/manager/META-INF/context.xml.bak
 
+sudo sed -i '/RemoteAddrValve/ s/^/<!-- /' /opt/tomcat/webapps/manager/META-INF/context.xml
+sudo sed -i '/RemoteAddrValve/ s/$/ -->/' /opt/tomcat/webapps/manager/META-INF/context.xml
+
+cat <<EOF | sudo tee /opt/tomcat/webapps/manager/META-INF/context.xml
+<Context antiResourceLocking="false" privileged="true">
+</Context>
+EOF
+
+cat <<EOF | sudo tee /opt/tomcat/webapps/host-manager/META-INF/context.xml
+<Context antiResourceLocking="false" privileged="true">
+</Context>
+EOF
+
+cd /opt/tomcat/bin
+chmod +x *.sh
+./startup.sh
 # #!/bin/bash
 # sudo hostnamectl set-hostname "tomcat.mypc.com"
 # echo "`hostname -I | awk '{ print $1 }'` `hostname`" >> /etc/hosts
