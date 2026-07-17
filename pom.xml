@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.aws.codestar.projecttemplates</groupId>
     <artifactId>cloudbinary</artifactId>
-    <version>3.3.6-SNAPSHOT</version>
-    <!--<version>9.10.3-SNAPSHOT</version>-->
+    <!-- <version>3.3.6-SNAPSHOT</version> -->
+    <version>9.10.3-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Cloud Binary - Sample Spring MVC Application</name>
+    <name>Kav_DevOps - Sample Spring MVC Application</name>
 
     <properties>
         <junit.platform.version>1.2.0</junit.platform.version>
@@ -14,12 +14,12 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-# add copied maven SonarQube code here 
+<!-- # add copied maven SonarQube code here  -->
 
-        <sonar.host.url>http://54.198.125.165:9000</sonar.host.url>
+       <sonar.host.url>http://54.234.216.203:9000</sonar.host.url>
         <sonar.organization>Kav_DevOps</sonar.organization>
-        <sonar.projectKey>Kav_DevOps_Pro</sonar.projectKey>
-        <sonar.login>sqp_a124c2adc481d105d6545cd5dfaecea11659b934</sonar.login>
+        <sonar.projectKey>Kav_Dev_Pro</sonar.projectKey>
+        <sonar.login>sqp_8f13915ee2350315aaebd9acd6a479ba3598dbb0</sonar.login>
 
 
       <!-- mvn clean verify sonar:sonar \
@@ -31,7 +31,7 @@
     </properties>
 
        
-     # Update JFrog Artifactory repository URLs - release and snapshot repositories
+     <!-- # Update JFrog Artifactory repository URLs - release and snapshot repositories -->
 <distributionManagement>
 
     <repository>
