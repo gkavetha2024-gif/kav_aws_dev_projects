@@ -7,7 +7,8 @@ pipeline {
     stages {
          stage('Stage-0 : Static Code Analysis Using SonarQube') { 
            steps {
-                sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://54.234.216.203:9000 -Dsonar.login=sqp_8f13915ee2350315aaebd9acd6a479ba3598dbb0'
+                sh 'mvn clean verify sonar:sonar
+               // -Dsonar.host.url=http://54.234.216.203:9000 -Dsonar.login=sqp_8f13915ee2350315aaebd9acd6a479ba3598dbb0'
             }
         }
         stage('Stage-1 : Clean') { 
@@ -22,39 +23,39 @@ pipeline {
         }
          stage('Stage-3 : Compile') { 
             steps {
-                sh 'mvn compile -DskipTests'
+                sh 'mvn compile'
             }
         }
          stage('Stage-4 : Test') { 
             steps {
-                sh 'mvn test -DskipTests'
+                sh 'mvn test'
             }
         }
           stage('Stage-5 : Install') { 
             steps {
-                sh 'mvn install -DskipTests'
+                sh 'mvn install'
             }
         }
           stage('Stage-6 : Verify') { 
             steps {
-                sh 'mvn verify -DskipTests'
+                sh 'mvn verify'
             }
         }
           stage('Stage-7 : Package') { 
             steps {
-                sh 'mvn package -DskipTests'
+                sh 'mvn package'
             }
         }
            stage('Stage-8 : Deploy an Artifact to Artifactory Manager i.e. Nexus/Jfrog') { 
             steps {
-                sh 'mvn deploy -DskipTests'
+                sh 'mvn deploy'
             }
         }
           stage('Stage-9 : Deployment - Deploy a Artifact devops-2.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
                 // Tomcat Server IP Address
                //sh 'curl -u admin:home@123 -T target/devops.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
-               sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
+               sh 'curl -u admin:home@123 -T target/devops.war "http://32.199.190.107:8080/manager/text/deploy?path=/cbapp&update=true"'
             }
         } 
   
