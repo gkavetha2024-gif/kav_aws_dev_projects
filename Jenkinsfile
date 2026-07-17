@@ -95,7 +95,7 @@ pipeline {
         // Stage 2: Publish the cloudbinary-3.3.6.war artifact to your Artifactory repository
         stage('Stage-2 : Deploy an Artifact to Artifactory Manager') { 
             steps {
-                // !!! ADD YOUR REAL USERNAME AND PASSWORD/TOKEN HERE !!!
+                // !!! ADD YOUR JFROG REAL USERNAME AND PASSWORD/TOKEN HERE !!!
                 sh '''
                     curl -u "admin:Home@123" \
                          -X PUT \
@@ -108,14 +108,15 @@ pipeline {
         // Stage 3: Send the cloudbinary-3.3.6.war file directly into Tomcat
         stage('Stage-3 : Deployment to Tomcat Server') { 
             steps {
-                sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/kavapp&update=true"'
+// ADD Tomcat USERNAME AND PASSWORD/
+              sh 'curl -u admin:home@123 -T target/**.war "http://32.199.190.107:8080/manager/text/deploy?path=/kavapp&update=true"'
             }
         } 
 
         // Stage 4: Check if the application web page loads up properly
         stage('Stage-4 : SmokeTest') { 
             steps {
-                sh 'curl --retry-delay 10 --retry 5 "http://32.199.190.107:8080/kavapp"'
+                sh 'curl --retry-delay 10 --retry 5 "http://32.199.190.107:8080/kavapp"' // app name
             }
         }
     }
