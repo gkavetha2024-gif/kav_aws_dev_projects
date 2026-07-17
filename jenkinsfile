@@ -1,8 +1,8 @@
 pipeline {
     agent any 
     tools {
-         jdk 'jdk17'
-         maven 'Maven3'
+         jdk 'jdk21'
+         maven 'Maven3.9.12'
     }
     stages {
          stage('Stage-0 : Static Code Analysis Using SonarQube') { 
