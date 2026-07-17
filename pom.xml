@@ -35,13 +35,13 @@
 <distributionManagement>
 
     <repository>
-        <id>release</id>
+        <id>ksv-release</id>
         <name>kav-libs-release-local</name>
         <url>http://54.234.34.73:8082/artifactory/kav-libs-release-local/</url>
     </repository>
 
     <snapshotRepository>
-        <id>snapshots</id>
+        <id>ksv-snapshots</id>
         <name>kav-libs-snapshots-local</name>
         <url>http://54.234.34.73:8082/artifactory/kav-libs-snapshots-local/</url>
     </snapshotRepository>
