@@ -97,7 +97,7 @@ pipeline {
             steps {
                 // !!! ADD YOUR REAL USERNAME AND PASSWORD/TOKEN HERE !!!
                 sh '''
-                    curl -u "YOUR_USER:YOUR_PASS_OR_TOKEN" \
+                    curl -u "admin:Home@123" \
                          -X PUT \
                          -T target/cloudbinary-3.3.6.war \
                          "http://54.234.34.73:8082/artifactory/kav-libs-snapshots-local/com/aws/codestar/projecttemplates/cloudbinary/3.3.6/cloudbinary-3.3.6.war"
