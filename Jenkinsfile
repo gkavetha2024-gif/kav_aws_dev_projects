@@ -7,7 +7,7 @@ pipeline {
     stages {
          stage('Stage-0 : Static Code Analysis Using SonarQube') { 
            steps {
-                sh 'mvn clean verify sonar:sonar'
+                sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://54.234.216.203:9000 -Dsonar.login=sqp_8f13915ee2350315aaebd9acd6a479ba3598dbb0'
             }
         }
         stage('Stage-1 : Clean') { 
