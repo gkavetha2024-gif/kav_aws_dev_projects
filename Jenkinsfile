@@ -99,7 +99,7 @@ pipeline {
                 sh '''
                     curl -u "admin:Home@123" \
                          -X PUT \
-                         -T target/cloudbinary-3.3.6.war \
+                         -T target/cloudbinary*.war \
                          "http://54.234.34.73:8082/artifactory/kav-libs-snapshots-local/com/aws/codestar/projecttemplates/cloudbinary/3.3.6/cloudbinary-3.3.6.war"
                 '''
             }
