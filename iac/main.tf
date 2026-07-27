@@ -19,7 +19,7 @@ terraform {
   backend "s3" {
     bucket = "amzn-s3-kav-bucket"
     // own s3 bucket name
-    key = "kav_terra_Pro/terraform.tfstate"
+    key = "kav_terra_Pro/infra_dev/terraform.tfstate"
     // kav_terra_Pro is a folder name in the bucket of amzn-s3-kav-bucket
     region = "us-east-1"
   }
